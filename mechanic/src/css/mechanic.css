@@ -1,0 +1,304 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+  }
+  body{
+      background-color:#000000;
+      
+  }
+
+  
+  h1{
+    font-size: 2.5rem;
+    font-family: 'Montserrat';
+    font-weight: normal;
+    color: #444;
+    text-align: center;
+    margin: 2rem 0;
+  }
+  .head{
+      color: rgb(185, 238, 79);
+      letter-spacing: 20px; 
+      /* helps to space evenly between letters */
+      
+  }
+  .head:hover{
+      letter-spacing: 50px;
+      transition: all 1s ease-in-out .7s;
+      /* this give a smooth transitin on hiver and with increasing letter spacing */
+  }
+  
+  /* this is css of header code */
+  
+  header{
+    background-color: black;
+    animation-name: appear;
+    animation-duration: 3s;
+    color: white;
+    width: 98%;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    opacity: 1;
+    /* opacity means transparency */
+    top: 0;
+    transition: 0.3s;
+    font-family: CG;
+
+  }
+  
+  #sidenav{
+    position: absolute;
+    line-height: 50px; background-color: #000; color: #fff; height: 100%; 
+    z-index: 2;
+    font-family: CG;
+    
+    padding-bottom: 30px;
+    width: 0;
+    overflow-x: hidden;
+    transition: width 0.6s;
+    left: 0;
+    visibility: hidden;
+  }
+  
+  #autonix-logo{
+    letter-spacing: 10px; 
+    color: rgb(185, 238, 79); 
+    font-size: xx-large;
+    transition: all 1s ease-in-out .3s;
+  }
+  #autonix-logo:hover{
+    letter-spacing: 40px;
+    /* font-size: 40px; */
+  }
+  
+  #sidenav.visible{
+    width: fit-content;
+    visibility: inherit;
+  }
+  /* this is for making website respponsive */
+  @media (max-width: 721px) {
+    #autonix-logo{
+        display: none;
+    }
+  }
+  
+  #sidenav a:hover{
+    color: #9ECA2E;
+    transition: 0.5s;
+  }
+  #sidenav a{
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+  
+  #cross:hover{
+    color: #9ECA2E;
+  }
+  #menu{
+    transition: 0.5s;
+  }
+  #menu:hover{
+    color: #9ECA2E;
+  }
+  
+  
+  /* .image1{
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items:flex-start;
+  } */
+  
+  
+  .wrapper{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 80rem;
+  
+  }
+  
+  
+  /* here main css start for our animation on revsering div and writing content on reversed part when we hover */
+  
+  .cols{
+    
+  
+    display: flex;
+    
+    flex-wrap: wrap;
+    /* this wraps item in multiple line if it exceed container width */
+    justify-content: center;
+  }
+  
+  
+  .col{
+    width: calc(25% - 2rem);
+    margin: 1rem;
+    cursor: pointer;
+  }
+  
+  .container{
+            transform-style: preserve-3d;
+            /* this ensures 3d postioning of child element and persp. higer value good 3d transiton*/
+            perspective: 1000px;
+  }
+  
+  .front,
+  .back{
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+    border-radius: 10px;
+    background-position: center;
+  
+  
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    /* for smooth function of transiton */
+    backface-visibility: hidden;
+    text-align: center;
+    min-height: 280px;
+    height: auto;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  
+  .back{
+    background: #cedce7;
+    background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+  }
+  
+  .front:after{
+    position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      /*  stacking of elements ye 2 div tag aage piche kar deta hai ovelap krdeta hai 3d sense me bole toh */
+      width: 100%;
+      height: 100%;
+      content: '';
+      opacity: .6;
+      /* this makes front image transparent */
+      background-color: #000;
+      backface-visibility: hidden;
+      border-radius: 10px;
+  }
+  .container:hover .front,
+  .container:hover .back{
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+     
+  }
+  
+  .back{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+  }
+  
+  .inner{
+      transform: translateY(-50%) translateZ(100px) ;
+      /* transaltez make 3d feel like in animatoionm */
+      top: 50%;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      padding: 2rem;
+      box-sizing: border-box;
+      outline: 1px solid transparent;
+      perspective: inherit;
+      z-index: 2;
+      /* stack me iske niche z index 1 wala hoega */
+  }
+  
+  .container .back{
+              transform: rotateY(180deg);
+              transform-style: preserve-3d;
+  }
+  
+  .container .front{
+              transform: rotateY(0deg);
+              transform-style: preserve-3d;
+  }
+  
+  .container:hover .back{
+            transform: rotateY(0deg);
+            transform-style: preserve-3d;
+  }
+  
+  .container:hover .front{
+            transform: rotateY(-180deg);
+            transform-style: preserve-3d;
+  }
+  
+  .front .inner p{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  /* .front .inner p:after{
+    content: '';
+    width: 4rem;
+    height: 2px;
+    position: absolute;
+    background: #C6D4DF;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -.75rem;
+  } */
+  
+  .front .inner span{
+    color: rgba(255,255,255,0.7);
+    font-family: 'Montserrat';
+    font-weight: 300;
+  }
+  
+  @media screen and (max-width: 64rem) {
+    .col {
+      width: 31.333333%;
+    }
+  }
+  
+  @media screen and (max-width: 48rem) {
+    .col {
+      width: 48%;
+    }
+  }
+  
+  @media screen and (max-width: 32rem){
+    .col{
+      width: 100%;
+  
+    }
+  }
+  .para10{
+      font-size:medium;
+  }
+  .button1 {
+      height: 30px;
+      width: 100px;
+      background-color: #dcf754;
+      border-radius: 20px;
+      box-shadow: 10px 3px 20px whitesmoke;
+  } 
+  .button1:hover{
+    background-color: rgb(41, 236, 64);
+    box-shadow: 10px 3px 20px rgb(41, 236, 64);
+  }
+  footer{
+    background-color:#000000;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  
+  

@@ -1,0 +1,13 @@
+package com.MECHANIC.AutoniXMech;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AutoniXMechApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AutoniXMechApplication.class, args);
+	}
+
+}
